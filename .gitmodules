@@ -1,3 +1,0 @@
-[submodule "fiat_gateway"]
-	path = fiat_gateway
-	url = git@github.com:stablecarbon/fiat_gateway.git
