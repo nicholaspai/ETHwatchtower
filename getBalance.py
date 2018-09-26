@@ -41,7 +41,7 @@ def textBalanceOwner(recipients):
 	if deltaBalance is None:
 		return
 	latestBlock = w3.eth.blockNumber
-	blockNumber = str('Block number: {}\n'.format(latestBlock))
+	blockNumber = str('Block number: {}'.format(latestBlock))
 	if deltaBalance['delta'] == 1:
 		latestBlock = w3.eth.blockNumber
 		ownerBalance = str("balance now {} ETH, old balance was {}\n".format(deltaBalance['new'], deltaBalance['old']))
@@ -49,7 +49,7 @@ def textBalanceOwner(recipients):
 	elif deltaBalance['delta'] == -1:
 		latestBlock = w3.eth.blockNumber
 		ownerBalance = str("balance now {} ETH, old balance was {}\n".format(deltaBalance['new'], deltaBalance['old']))
-		text('Owner ETH balance decreased\n' + ownerBalance + blockNumber, recipients)
+		text('Owner ETH balance decreased' + ownerBalance + blockNumber, recipients)
 	else:
 		print('Owner ETH balance unchanged' + blockNumber)
 
@@ -59,7 +59,7 @@ def textBalanceValidator(recipients):
 	if deltaBalance is None:
 		return
 	latestBlock = w3.eth.blockNumber
-	blockNumber = str('Block number: {}\n'.format(latestBlock))
+	blockNumber = str('Block number: {}'.format(latestBlock))
 	if deltaBalance['delta'] == 1:
 		latestBlock = w3.eth.blockNumber
 		ownerBalance = str("balance now {} ETH, old balance was {}\n".format(deltaBalance['new'], deltaBalance['old']))
@@ -67,7 +67,7 @@ def textBalanceValidator(recipients):
 	elif deltaBalance['delta'] == -1:
 		latestBlock = w3.eth.blockNumber
 		ownerBalance = str("balance now {} ETH, old balance was {}\n".format(deltaBalance['new'], deltaBalance['old']))
-		text('Validator&Minter ETH balance decreased\n' + ownerBalance + blockNumber, recipients)
+		text('Validator&Minter ETH balance decreased' + ownerBalance + blockNumber, recipients)
 	else:
 		print('Validator&Minter ETH balance unchanged' + blockNumber)
 
