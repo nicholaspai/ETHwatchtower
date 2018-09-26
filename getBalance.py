@@ -1,5 +1,5 @@
 from setupWeb3 import w3
-
+from textdispatcher import text
 # Owner of smart contracts
 owner = '0xB3801a04F1fc50B71d5c0776b0739add3AaDdc42'
 
@@ -9,6 +9,8 @@ validator = '0xFE6EB9835041e16A67eeEEcdb7945aF27Bc5a28D'
 # Minter can mint new CUSD
 minter = validator
 
+#target number
+target = '18085896951'
 # Balances
 ownerBalance = w3.eth.getBalance(owner)
 validatorBalance = w3.eth.getBalance(validator)
@@ -20,6 +22,7 @@ validatorBalance_eth = w3.fromWei(validatorBalance, 'ether')
 # Get latest block
 latestBlock = w3.eth.blockNumber
 
+print(text(str("Owner has {} ETH".format(ownerBalance_eth)),target))
 print('Latest block number: {}'.format(latestBlock))
 print("Owner has {} ETH".format(ownerBalance_eth))
 print("Minter&Validator has {} ETH".format(validatorBalance_eth))
