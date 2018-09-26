@@ -11,6 +11,6 @@ def loop_main(poll_interval):
 		time.sleep(poll_interval)
 
 def main():
-	loop_main(10)
+	loop_main(3)
 
 main()
