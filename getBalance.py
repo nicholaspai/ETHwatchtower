@@ -15,6 +15,9 @@ def getBalance(address):
 	latestBlock = w3.eth.blockNumber
 	oldBalance = w3.fromWei(w3.eth.getBalance(address, block_identifier=latestBlock-1), 'ether')
 	newBalance = w3.fromWei(w3.eth.getBalance(address), 'ether')
+	if oldBalance is None or newBalance is None:
+		print('Error retrieving balances')
+		return
 	if newBalance < oldBalance:
 		result = ({'delta':-1, 'new': newBalance, 'old': oldBalance})
 		return result
