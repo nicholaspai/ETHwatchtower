@@ -1,5 +1,6 @@
 from setupWeb3 import w3
 from textdispatcher import text
+import time
 
 # Owner of smart contracts
 owner = '0xB3801a04F1fc50B71d5c0776b0739add3AaDdc42'
@@ -30,9 +31,13 @@ def textBalanceValidatorMinter():
 def textBlockNumber():
 	text(str('Latest block number: {}'.format(latestBlock)))
 
+def loop_main(poll_interval):
+	while True:
+		latestBlock = w3.eth.blockNumber
+		print('Latest block number: {}'.format(latestBlock))
+		time.sleep(poll_interval)
+
 def main():
-	textBalanceOwner()
-	textBalanceValidatorMinter()
-	textBlockNumber()
+	loop_main(2)
 
 main()
