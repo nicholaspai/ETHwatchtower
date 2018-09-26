@@ -11,6 +11,7 @@ def loop_main(poll_interval):
 		time.sleep(poll_interval)
 
 def main():
+	print('working')
 	loop_main(2)
 
 main()
