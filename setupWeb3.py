@@ -1,9 +1,5 @@
 # setupWeb3: Export web3 object using infura to connect to mainnet
 
-# Dependencies:
-#	python-dotenv-0.9.1
-#	web3@4.7.1
-
 from web3 import Web3
 import settings
 import os
