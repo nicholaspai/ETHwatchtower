@@ -1,6 +1,5 @@
 from setupWeb3 import w3
 from textdispatcher import text
-import time
 
 # Owner of smart contracts
 owner = '0xB3801a04F1fc50B71d5c0776b0739add3AaDdc42'
@@ -26,43 +25,35 @@ def getBalance(address):
 		result = ({'delta': 0, 'new': newBalance, 'old': oldBalance})
 		return result
 
-def textBalanceOwner():
+# Text recipients if owner balance has changed
+def textBalanceOwner(recipients):
 	deltaBalance = getBalance(owner)
 	latestBlock = w3.eth.blockNumber
 	blockNumber = str('Block number: {}\n'.format(latestBlock))
 	if deltaBalance['delta'] == 1:
 		latestBlock = w3.eth.blockNumber
 		ownerBalance = str("balance now {} ETH, old balance was {}\n".format(deltaBalance['new'], deltaBalance['old']))
-		text('Owner ETH balance increased\n' + ownerBalance + blockNumber)
+		text('Owner ETH balance increased\n' + ownerBalance + blockNumber, recipients)
 	elif deltaBalance['delta'] == -1:
 		latestBlock = w3.eth.blockNumber
 		ownerBalance = str("balance now {} ETH, old balance was {}\n".format(deltaBalance['new'], deltaBalance['old']))
-		text('Owner ETH balance decreased\n' + ownerBalance + blockNumber)
+		text('Owner ETH balance decreased\n' + ownerBalance + blockNumber, recipients)
 	else:
 		print('Owner ETH balance unchanged' + blockNumber)
 
-def textBalanceValidator():
+# Text recipients if validator balance has changed
+def textBalanceValidator(recipients):
 	deltaBalance = getBalance(validator)
 	latestBlock = w3.eth.blockNumber
 	blockNumber = str('Block number: {}\n'.format(latestBlock))
 	if deltaBalance['delta'] == 1:
 		latestBlock = w3.eth.blockNumber
 		ownerBalance = str("balance now {} ETH, old balance was {}\n".format(deltaBalance['new'], deltaBalance['old']))
-		text('Validator&Minter ETH balance increased\n' + ownerBalance + blockNumber)
+		text('Validator&Minter ETH balance increased\n' + ownerBalance + blockNumber, recipients)
 	elif deltaBalance['delta'] == -1:
 		latestBlock = w3.eth.blockNumber
 		ownerBalance = str("balance now {} ETH, old balance was {}\n".format(deltaBalance['new'], deltaBalance['old']))
-		text('Validator&Minter ETH balance decreased\n' + ownerBalance + blockNumber)
+		text('Validator&Minter ETH balance decreased\n' + ownerBalance + blockNumber, recipients)
 	else:
 		print('Validator&Minter ETH balance unchanged' + blockNumber)
 
-def loop_main(poll_interval):
-	while True:
-		textBalanceOwner()
-		textBalanceValidator()
-		time.sleep(poll_interval)
-
-def main():
-	loop_main(2)
-
-main()
