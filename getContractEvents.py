@@ -1,3 +1,4 @@
+from setupWeb3 import w3
 from contracts import (
 	cusd_active,
 	cusd_factory,
@@ -7,6 +8,7 @@ from contracts import (
 	cusd_reg_active,
 	wt0_reg_active
 )
+import time
 
 def getAddresses():
 	print('CUSD: {}'.format(cusd_active.address))
@@ -17,9 +19,18 @@ def getAddresses():
 	print('CUSD regulator: {}'.format(cusd_reg_active.address))
 	print('WT0 regulator: {}'.format(wt0_reg_active.address))
 
-# def getEvents(contract):
+def handle_event(event):
+	print(event)
+
+def log_loop(event_filter, poll_interval):
+    while True:
+        for event in event_filter.get_new_entries():
+            handle_event(event)
+        time.sleep(poll_interval)
 
 def main():
-	getAddresses()
+	# not working for now: createFilter() not allowed through an Infura node
+	# event_filter = cusd_reg_active.events.LogWhitelistedUser.createFilter(fromBlock="latest")
+	# log_loop(event_filter, 2)
 
 main()
