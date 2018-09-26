@@ -1,5 +1,4 @@
 # setupWeb3: Export web3 object using infura to connect to mainnet
-import config
 from web3 import Web3
 import settings
 import os

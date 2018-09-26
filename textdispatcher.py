@@ -1,6 +1,5 @@
 import os
 import whitelist
-import config
 
 # Constants
 text_from = whitelist.FROM
