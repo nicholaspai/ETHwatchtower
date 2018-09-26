@@ -1,8 +1,9 @@
 import os
+import whitelist
 
 # Constants
-text_from = '+18084686236'
-text_to = '+18085896951'
+text_from = whitelist.FROM
+text_to = whitelist.NICK
 account_sid = os.getenv("TWILIO_SID")
 auth_token = os.getenv("TWILIO_AUTH_TOKEN")
 

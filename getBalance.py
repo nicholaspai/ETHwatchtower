@@ -19,22 +19,16 @@ validatorBalance = w3.eth.getBalance(validator)
 ownerBalance_eth = w3.fromWei(ownerBalance, 'ether')
 validatorBalance_eth = w3.fromWei(validatorBalance, 'ether')
 
-# Get latest block
-latestBlock = w3.eth.blockNumber
-
-def textBalanceOwner():
-	text(str("Owner has {} ETH".format(ownerBalance_eth)))
-
-def textBalanceValidatorMinter():
-	text(str("Minter&Validator has {} ETH".format(validatorBalance_eth)))
-
-def textBlockNumber():
-	text(str('Latest block number: {}'.format(latestBlock)))
+def textBalance():
+	latestBlock = w3.eth.blockNumber
+	ownerBalance = str("Owner has {} ETH\n".format(ownerBalance_eth))
+	validatorAndMinterBalance = str("Minter&Validator has {} ETH\n".format(validatorBalance_eth))
+	blockNumber = str('Block number: {}\n'.format(latestBlock))
+	text(ownerBalance + validatorAndMinterBalance + blockNumber)
 
 def loop_main(poll_interval):
 	while True:
-		latestBlock = w3.eth.blockNumber
-		print('Latest block number: {}'.format(latestBlock))
+		textBalance()
 		time.sleep(poll_interval)
 
 def main():
