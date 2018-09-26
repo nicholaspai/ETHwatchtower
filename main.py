@@ -4,13 +4,13 @@ import time
 
 def loop_main(poll_interval):
 	# Who will receive the alerts
-	recipients = [whitelist.NICK, whitelist.SAM]
+	recipients = [whitelist.NICK]
 	while True:
 		textBalanceOwner(recipients)
 		textBalanceValidator(recipients)
 		time.sleep(poll_interval)
 
 def main():
-	loop_main(3)
+	loop_main(2)
 
 main()
