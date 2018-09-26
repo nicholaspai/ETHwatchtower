@@ -7,6 +7,6 @@ TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
 
 # read global vars from .env
 # INFURA_API_KEY_MAIN = os.getenv("INFURA_API_KEY_MAIN")
-# account_sid = os.getenv("TWILIO_SID")
-# auth_token = os.getenv("TWILIO_AUTH_TOKEN")
+# TWILIO_SID = os.getenv("TWILIO_SID")
+# TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
 
