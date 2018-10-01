@@ -11,6 +11,7 @@ def loop_main(poll_interval):
 		time.sleep(poll_interval)
 
 def main():
+	print('INFURA key: {}'.format(os.environ.get("INFURA_API_KEY_MAIN")))
 	loop_main(2)
 
 main()
