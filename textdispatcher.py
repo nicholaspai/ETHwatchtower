@@ -3,8 +3,8 @@ import whitelist
 
 # Constants
 text_from = whitelist.FROM
-account_sid = os.getenv("TWILIO_SID")
-auth_token = os.getenv("TWILIO_AUTH_TOKEN")
+account_sid = os.environ.get("TWILIO_SID")
+auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
 
 # Text recipients specified in textTo list
 def text(bod, textTo):
