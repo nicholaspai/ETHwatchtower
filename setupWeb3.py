@@ -1,7 +1,6 @@
 # setupWeb3: Export web3 object using infura to connect to mainnet
 from web3 import Web3
 import settings
-import os
 import config
 
 # Load constants from .env which are now present as system environment variable
