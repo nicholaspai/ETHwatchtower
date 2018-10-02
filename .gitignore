@@ -1,5 +1,7 @@
 .env
+__pycache__/
 
 # infura is not currently capable of filtering for events, rendering these files useless 
+contracts/
 contracts.py
 getContractEvents.py
