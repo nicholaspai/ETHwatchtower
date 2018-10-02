@@ -1,1 +1,5 @@
 .env
+
+# infura is not currently capable of filtering for events, rendering these files useless 
+contracts.py
+getContractEvents.py
