@@ -6,3 +6,9 @@ This module can track events of deployed contracts from the `fiat_gateway` repo.
 
 ## Deployment
 Currently, I am running this script as a scheduled 'one-off' worker on [Heroku](https://devcenter.heroku.com/articles/scheduler). 
+
+## Requirements
+- dotenv file stores global API keys and ETH addresses to track
+- whitelist.py stores relevant phone numbers
+- Heroku for deployment
+- Twilio for an easy way to text numbers programmatically
